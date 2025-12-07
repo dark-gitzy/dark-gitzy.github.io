@@ -1,5 +1,5 @@
 // --- 1. TYPING ANIMATION ---
-const textToType = "Your Name"; // <--- CHANGE THIS TO YOUR NAME
+const textToType = "Dark"; // <--- CHANGE THIS TO YOUR NAME
 const typingElement = document.getElementById('typing-text');
 let typeIndex = 0;
 
@@ -76,4 +76,5 @@ window.onload = function() {
         duration: 1000, // Animation duration
         once: true      // Only animate once per scroll
     });
+
 };
