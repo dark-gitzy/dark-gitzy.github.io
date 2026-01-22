@@ -1,20 +1,28 @@
-public class BirdScript : MonoBehaviour
-{
-    public Rigidbody2D myRigidbody;
-    public float flapStrength = 10;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
-    void Start()
+public class PlayerController : MonoBehaviour
+{
+    public float jumpForce = 6f;
+    private Rigidbody2D rb;
+
+    void Awake()
     {
-        // This names the object in the editor so you know it's working
-        gameObject.name = "NeonBird";
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        // JUMP LOGIC: When Space is pressed, fly up!
-        if (Input.GetKeyDown(KeyCode.Space) == true)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame ||
+            Mouse.current.leftButton.wasPressedThisFrame)
         {
-            myRigidbody.velocity = Vector2.up * flapStrength;
+            Jump();
         }
+    }
+
+    void Jump()
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
