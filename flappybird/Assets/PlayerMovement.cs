@@ -1,16 +1,20 @@
-using UnityEngine;
-
-public class PlayerMovement : MonoBehaviour
+public class BirdScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Rigidbody2D myRigidbody;
+    public float flapStrength = 10;
+
     void Start()
     {
-        
+        // This names the object in the editor so you know it's working
+        gameObject.name = "NeonBird";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // JUMP LOGIC: When Space is pressed, fly up!
+        if (Input.GetKeyDown(KeyCode.Space) == true)
+        {
+            myRigidbody.velocity = Vector2.up * flapStrength;
+        }
     }
 }
