@@ -1,28 +1,55 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public float jumpForce = 6f;
-    private Rigidbody2D rb;
-
-    void Awake()
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
+    private int spriteIndex;
+    private Vector3 direction;
+    public float gravity = -9.8f;
+    public float strength = 5f; 
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    void Update()
+    private void Start()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame ||
-            Mouse.current.leftButton.wasPressedThisFrame)
+        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            Jump();
+            direction = Vector3.up * strength;
         }
+        if (Input.touchCount > 0 );
+        {
+           Touch touch = Input.GetTouch(0);
+           if (touch.phase == TouchPhase.Began)
+           {
+            direction = Vector3.up * strength;
+           }
+        }
+        direction.y += gravity * Time.deltaTime;
+        transform.position += direction * Time.deltaTime;
     }
-
-    void Jump()
+    private void AnimateSprite()
     {
-        rb.linearVelocity = Vector2.zero;
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        spriteIndex++;
+        if (spriteIndex >= sprites.Length)
+        {
+            spriteIndex = 0;
+        }
+        spriteRenderer.sprite = sprites[spriteIndex];
+    } 
+   private void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.gameObject.tag == "Obstacle")
+    {
+        // This is the command you wanted to use
+        Object.FindAnyObjectByType<GameManager>().Gameover();
     }
+}
+    
+
+
 }

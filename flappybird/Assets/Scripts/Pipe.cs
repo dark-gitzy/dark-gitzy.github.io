@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class pipespawn : MonoBehaviour
+public class Pipe : MonoBehaviour
 {
     public GameObject Pipes;
     public float spwanRate = 1f;

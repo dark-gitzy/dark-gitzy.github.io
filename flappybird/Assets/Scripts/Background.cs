@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    public float speed = 1f;
-    private float width;
+    private SpriteRenderer spriteRenderer; 
+    public float animationSpeed = 0.05f;
 
-    void Start()
+    private void Awake()
     {
-        width = GetComponent<SpriteRenderer>().bounds.size.x;
+        // This looks for a 2D Sprite component instead of a 3D Mesh
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        // This scrolls the actual position of the background 2D image
+        transform.position += Vector3.left * animationSpeed * Time.deltaTime;
 
-        if (transform.position.x <= -width)
-        {
-            transform.position += Vector3.right * width * 2f;
+        // If the background goes too far left, loop it back to the right
+        if (transform.position.x < -20f) { 
+            transform.position += new Vector3(40f, 0, 0); 
         }
     }
 }
-
-
