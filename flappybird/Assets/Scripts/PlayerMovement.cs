@@ -13,11 +13,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame ||
-            Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            Jump();
-        }
+       if (
+    Input.GetKeyDown(KeyCode.Space) ||
+    Input.GetMouseButtonDown(0)
+)
+{
+    Jump();
+}
+
     }
 
     void Jump()

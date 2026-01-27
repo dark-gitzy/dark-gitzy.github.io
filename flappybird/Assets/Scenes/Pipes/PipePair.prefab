@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b94d27e673dad34897769ae4b151463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeScroll
-  speed: 5
+  speed: 2
 --- !u!1 &3577593767006875730
 GameObject:
   m_ObjectHideFlags: 0

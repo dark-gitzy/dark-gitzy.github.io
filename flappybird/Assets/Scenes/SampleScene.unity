@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85f935ce101c0b408a3421b452639ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 5
+  speed: 2
 --- !u!1 &1862225232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,9 +1036,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Pipes: {fileID: 2714743120421085106, guid: ec56fe0e27a8ad24a9c3b2ecc125312f, type: 3}
-  spwanRate: 1.3
-  maxHeight: 1
-  minHeight: -1
+  spwanRate: 2
+  maxHeight: 1.5
+  minHeight: -1.5
 --- !u!1 &1923853907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85f935ce101c0b408a3421b452639ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 5
+  speed: 2
 --- !u!1 &2033318979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85f935ce101c0b408a3421b452639ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 5
+  speed: 2
 --- !u!212 &2033318982
 SpriteRenderer:
   serializedVersion: 2
